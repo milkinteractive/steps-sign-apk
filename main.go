@@ -317,12 +317,6 @@ func main() {
 	fmt.Println()
 	log.Infof("Signing %d Build Artifacts", len(buildArtifactPaths))
 
-	if len(buildArtifactPaths) > 1 && cfg.OutputName != "" {
-		log.Warnf("output_name is set and more than one artifact found, disabling artifact renaming as it would result in overwriting exported artifacts")
-		fmt.Println()
-		cfg.OutputName = ""
-	}
-
 	for i, buildArtifactPath := range buildArtifactPaths {
 		artifactExt := path.Ext(buildArtifactPath)
 		log.Donef("%d/%d signing %s", i+1, len(buildArtifactPaths), buildArtifactPath)
